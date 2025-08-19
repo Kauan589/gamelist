@@ -8,17 +8,19 @@ import jakarta.persistence.*;
 @Table(name = "tb_game")
 public class Game {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Use Id as PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Generate automated values
     private Long id;
     private String title;
-    @Column(name = "game_year")
+    @Column(name = "game_year") // year is a reserved word in SQL. This configuration changes the name in DB
     private Integer year;
     private String genre;
     private String platforms;
     private Double score;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT") // Configuration to use more than 255 char
     private String shortDescription;
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(String title, Integer year, String genre, String platforms, Double score, String imgUrl, String shortDescription, String longDescription) {

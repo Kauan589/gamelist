@@ -11,7 +11,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Game {
 
     @Id // Use Id as PK
-    @GeneratedValue(strategy = IDENTITY) // Generate automated values
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Generate automated values
     private Long id;
     private String title;
     @Column(name = "game_year") // year is a reserved word in SQL. This configuration changes the name in DB
